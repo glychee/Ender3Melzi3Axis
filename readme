@@ -1,1 +1,30 @@
 Firmware for Melzi 1.1.4 board
+To use:
+Flash any arduino to be ArduinoISP, using the File > Examples > 11. ArduinoISP
+
+Install Sanguino board definition using https://github.com/Lauszus/Sanguino 
+> To use this add-on simply add the following url: https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json to the Arduino boards manager. Please see the following page for more information: https://learn.adafruit.com/add-boards-arduino-v164.
+
+Copy the whole "grbl" folder into Document > Arduino > Libraries
+(Re)Open Arduino IDE,a library named grbl should now be available, open the grblUpload.ino file (File > examples > grblUpload)
+
+Wire up the Arduino to the ISP port:
+If you look at the Melzi board from the top down with the CREALITY3D text upside down, the ISP port is on the left
+(display cable)
+(1)(2)
+(3)(4)
+(5)(6)
+(usb mini connector)
+Wire up the SPI connector:
+1 Grnd > Grnd
+2 Reset > Pin 10 
+3 MOSI > Pin 11 
+4 SCK > Pin 13 
+5 5V > 5v/Vcc (Or leave disconnected, power through USB mini port/power supply)
+6 MISO > Pin 12
+
+In Tools>Port Select the COM port of the ArduinoISP
+In Tools>Processor Select Atmega1284 or Atmega1284p
+In Tools>Programmer Select "Arduino as ISP"  
+
+Upload the file using Arduino as ISP, CTRL+Shift+U is a hotkey to do this
